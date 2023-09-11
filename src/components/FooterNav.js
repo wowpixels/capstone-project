@@ -3,19 +3,21 @@ import SocialLinks from './SocialLinks';
 
 function FooterNav() {
   return (
-    <section>
+    <section className="py-20">
       <div>
-        <h3>Navigation</h3>
+        <h3 className="text-white">Navigation</h3>
         <Nav />
       </div>
       <div>
         <h3>Contact</h3>
         <ul>
           <li>
-            <address>Street 100, 1234AB Amsterdam</address>
+            <address className="text-white">
+              Street 100, 1234AB Amsterdam
+            </address>
           </li>
-          <li>02012345678</li>
-          <li>info@littlelemonrestaurant.com</li>
+          <li className="text-white">02012345678</li>
+          <li className="text-white">info@littlelemonrestaurant.com</li>
         </ul>
       </div>
       <div>
