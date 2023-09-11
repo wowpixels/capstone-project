@@ -1,15 +1,13 @@
 function Testimonial() {
   return (
-    <article>
+    <article className="bg-white rounded-3xl p-10">
       <div>stars</div>
       <img src="" alt="" />
-      <p>
+      <p className="py-4">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-        recusandae voluptate temporibus ipsa! Neque tempore, soluta ut
-        voluptas minus provident cumque impedit, tempora excepturi
-        asperiores nesciunt dolore, inventore quibusdam maxime.
+        recusandae voluptate temporibus ipsa! Neque tempore.
       </p>
-      <p>- John Doe</p>
+      <p className="font-bold text-primary">- John Doe</p>
     </article>
   );
 }

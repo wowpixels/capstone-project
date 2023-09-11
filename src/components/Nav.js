@@ -1,7 +1,7 @@
 function nav() {
   return (
     <nav>
-      <ul>
+      <ul className="hidden gap-4 justify-center items-center sm:gap-8 lg:gap-16 md:flex">
         <li>
           <a href="#">Home</a>
         </li>
