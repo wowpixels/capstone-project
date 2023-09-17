@@ -1,9 +1,11 @@
+import restaurantFood from '../images/restauranfood.jpg';
+
 function HeroBanner() {
   return (
     <section className="bg-primary">
       <div className="container grid grid-cols-1 gap-8 py-16 md:grid-cols-2">
         <div>
-          <h1 className="text-secondary text-6xl serif -mb-4">
+          <h1 className="text-secondary text-6xl serif -mb-2">
             Little Lemon
           </h1>
           <h3 className="text-white text-3xl m-0 serif">Chicago</h3>
@@ -19,8 +21,8 @@ function HeroBanner() {
         </div>
         <div className="relative">
           <img
-            className="absolute bg-tertiary rounded-xl right-0 -bottom-24 md:bottom-auto w-40 h-40 md:w-80 md:h-96"
-            src=""
+            className="absolute rounded-xl right-0 -bottom-24 md:bottom-auto w-40 h-40 md:w-80 md:h-96"
+            src={restaurantFood}
             alt="Restaurant"
           />
         </div>

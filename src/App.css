@@ -1,5 +1,5 @@
 a {
-  @apply font-bold transition-all duration-75 hover:text-primary hover:border-b-2 hover:border-primary;
+  @apply font-bold transition-all duration-75 hover:border-b-2;
 }
 
 .container {
@@ -28,4 +28,28 @@ h4 {
 
 p {
   @apply text-base;
+}
+
+header nav {
+  @apply hidden gap-4 justify-center items-center sm:gap-8 lg:gap-16 md:flex;
+
+  & a {
+    @apply hover:text-primary hover:border-b-2 hover:border-primary;
+  }
+
+  & .active {
+    @apply text-primary border-b-2 border-primary;
+  }
+}
+
+footer nav {
+  @apply text-white gap-2 mt-4 flex flex-col;
+
+  & a {
+    @apply border-black border-b-2 w-fit hover:border-b-2 hover:border-secondary;
+  }
+
+  & .active {
+    @apply w-fit text-secondary border-b-2 border-secondary;
+  }
 }
