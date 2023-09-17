@@ -5,6 +5,7 @@ import LemonDessert from '../images/lemon_dessert.jpg';
 import MenuItem from './MenuItem';
 const menuItem = [
   {
+    id: '0',
     image: GreekSalad,
     name: 'Greek Salad',
     price: 9.99,
@@ -13,6 +14,7 @@ const menuItem = [
     url: 'http://#',
   },
   {
+    id: '1',
     image: Bruschetta,
     name: 'Bruschetta',
     price: 12.0,
@@ -21,6 +23,7 @@ const menuItem = [
     url: 'http://#',
   },
   {
+    id: '2',
     image: LemonDessert,
     name: 'Lemon Dessert',
     price: 7.99,

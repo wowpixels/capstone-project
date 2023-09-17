@@ -1,7 +1,9 @@
 function MenuItem(props) {
   const filteredName = props.data.map((dishes) => {
     return (
-      <article className="bg-primary-200 rounded-t-3xl overflow-hidden">
+      <article
+        key={dishes.id}
+        className="bg-primary-200 rounded-t-3xl overflow-hidden">
         <img
           className="w-full object-cover rounded-t-3xl bg-primary rounded-t-3xl h-60 lg:h-80"
           src={dishes.image}
