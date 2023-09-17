@@ -3,7 +3,7 @@ import SocialLinks from './SocialLinks';
 
 function FooterNav() {
   return (
-    <section className="py-20">
+    <section>
       <div>
         <h3 className="text-white">Navigation</h3>
         <Nav />

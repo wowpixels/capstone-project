@@ -1,15 +1,18 @@
-function Testimonial() {
-  return (
-    <article className="bg-white rounded-3xl p-10">
-      <div>stars</div>
-      <img src="" alt="" />
-      <p className="py-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-        recusandae voluptate temporibus ipsa! Neque tempore.
-      </p>
-      <p className="font-bold text-primary">- John Doe</p>
-    </article>
-  );
+function Testimonial(props) {
+  const listTestimonial = props.data.map((data) => {
+    return (
+      <article
+        key={data.id}
+        className="testimonials bg-white rounded-3xl p-10 flex flex-col">
+        <img className="rounded-full w-20 mb-4" src={data.image} alt="" />
+        <div className="flex">{data.rating} / 5</div>
+        <p className="py-4">{data.testimonial}</p>
+        <p className="font-bold text-primary">- {data.name}</p>
+      </article>
+    );
+  });
+
+  return <>{listTestimonial}</>;
 }
 
 export default Testimonial;
