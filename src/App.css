@@ -1,13 +1,17 @@
-a {
-  @apply font-bold transition-all duration-75 hover:border-b-2;
-}
-
+/* General  */
 .container {
   @apply mx-auto px-8;
 }
 
+/* Text & Buttons */
+a {
+  @apply font-bold transition-all duration-75 hover:border-b-2;
+}
+
 .btn {
-  @apply text-lg px-4 py-2 bg-secondary rounded font-bold transition-all hover:border-none hover:text-black hover:bg-tertiary hover:shadow-lg;
+  @apply text-lg px-4 py-2 bg-secondary rounded font-bold transition-all 
+  hover:border-none hover:text-black hover:bg-tertiary hover:shadow-lg
+  hover:cursor-pointer;
 }
 
 h1 {
@@ -30,9 +34,8 @@ p {
   @apply text-base;
 }
 
+/* Header */
 header nav {
-  @apply hidden gap-4 justify-center items-center sm:gap-8 lg:gap-16 md:flex;
-
   & a {
     @apply hover:text-primary hover:border-b-2 hover:border-primary;
   }
@@ -42,8 +45,9 @@ header nav {
   }
 }
 
+/* Footer */
 footer nav {
-  @apply text-white gap-2 mt-4 flex flex-col;
+  @apply text-white gap-2 mt-4 flex flex-col mb-6;
 
   & a {
     @apply border-black border-b-2 w-fit hover:border-b-2 hover:border-secondary;
@@ -52,4 +56,37 @@ footer nav {
   & .active {
     @apply w-fit text-secondary border-b-2 border-secondary;
   }
+}
+
+/* Star Rating */
+.star-container {
+  @apply inline-flex relative items-center;
+}
+
+.star {
+  @apply flex fill-secondary w-[18px] mr-[2px];
+
+  &:last-of-type {
+    @apply mr-0
+  }
+}
+
+.star-overlay {
+  @apply bg-black absolute top-0 right-0 bottom-0 z-[1];
+
+
+  @supports (mix-blend-mode: color) {
+    mix-blend-mode: color;
+    opacity: unset;
+  }
+}
+
+/* Form */
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+label {
+  @apply font-bold
 }

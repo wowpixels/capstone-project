@@ -1,4 +1,4 @@
-import Nav from './Nav';
+import NavLinks from './NavLinks';
 import SocialLinks from './SocialLinks';
 
 function FooterNav() {
@@ -6,10 +6,12 @@ function FooterNav() {
     <section>
       <div>
         <h3 className="text-white">Navigation</h3>
-        <Nav />
+        <nav>
+          <NavLinks />
+        </nav>
       </div>
       <div>
-        <h3>Contact</h3>
+        <h3 className="text-white">Contact</h3>
         <ul>
           <li>
             <address className="text-white">
