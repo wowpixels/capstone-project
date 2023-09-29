@@ -9,9 +9,10 @@ a {
 }
 
 .btn {
-  @apply text-lg px-4 py-2 bg-secondary rounded font-bold transition-all 
+  @apply text-lg px-4 py-2 bg-secondary rounded font-bold transition-all
   hover:border-none hover:text-black hover:bg-tertiary hover:shadow-lg
-  hover:cursor-pointer;
+  hover:cursor-pointer disabled:opacity-50 disabled:hover:bg-secondary disabled:cursor-not-allowed disabled:hover:shadow-none;
+
 }
 
 h1 {
