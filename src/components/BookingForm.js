@@ -77,12 +77,22 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
 
     return (
       <>
-        <form className="grid grid-cols-1 gap-4 max-w-2xl sm:grid-cols-2" onSubmit={handleSubmit}>
+        <form
+        className="grid grid-cols-1 gap-4 max-w-2xl sm:grid-cols-2"
+        onSubmit={handleSubmit}
+        aria-label="Booking Form"
+        >
             <div className="flex flex-col gap-1 relative">
                 <label htmlFor="res-date">First Name <span className='text-tertiary'>*</span></label>
                 <input className={firstName.isTouched && firstName.value.length < 2 ?
-                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-tertiary border-tertiary' : 'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-none'}
-                type="text" id="first-name"  placeholder='John' required
+                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-tertiary border-tertiary' :
+                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-none'}
+                type="text"
+                id="first-name"
+                placeholder='John'
+                required
+                aria-required="true"
+                aria-label="First Name"
                 value={firstName.value}
                 onChange={(e) => {
                   setFirstName({ ...firstName, value: e.target.value });
@@ -98,8 +108,12 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1">
                 <label htmlFor="res-date">Last Name</label>
                 <input className="bg-primary-200 py-2 px-4 border
-                border-primary rounded focus:outline-tertiary" type="text" id="last-name"  placeholder='Doe'
+                border-primary rounded focus:outline-tertiary"
+                type="text"
+                id="last-name"
+                placeholder='Doe'
                 value={lastName}
+                aria-label="Last Name"
                 onChange={(e) => {
                   setLastName(e.target.value);
                 }}
@@ -108,7 +122,11 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1">
                 <label htmlFor="res-date">Email</label>
                 <input className="bg-primary-200 py-2 px-4 border
-                border-primary rounded focus:outline-tertiary" type="text" id="full-name"  placeholder='john.doe@email.com'
+                border-primary rounded focus:outline-tertiary"
+                type="text"
+                id="email"
+                placeholder='john.doe@email.com'
+                aria-label="Your Email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -118,8 +136,14 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1 relative">
                 <label htmlFor="res-date">Phone <span className='text-tertiary'>*</span></label>
                 <input className={phone.isTouched && phone.value.length < 10 ?
-                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-tertiary border-tertiary' : 'bg-primary-200 py-2 px-4 border border-primary rounded'}
-                type="text" id="full-name"  placeholder='010 1234567' required
+                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-tertiary border-tertiary' :
+                'bg-primary-200 py-2 px-4 border border-primary rounded'}
+                type="text"
+                id="phone"
+                placeholder='010 1234567'
+                required
+                aria-required="true"
+                aria-label="Your Phone Number"
                 value={phone.value}
                 onChange={(e) => {
                   setPhone({ ...phone, value: e.target.value });
@@ -135,7 +159,12 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1">
                 <label htmlFor="res-date">Choose date <span className='text-tertiary'>*</span></label>
                 <input className="bg-primary-200 py-2 px-4 border
-                border-primary rounded focus:outline-tertiary" type="date" id="res-date" required
+                border-primary rounded focus:outline-tertiary"
+                type="date"
+                id="res-date"
+                required
+                aria-required="true"
+                aria-label="Amount of guests"
                 min={minDate}
                 value={date}
                 onChange={handleDateChange}
@@ -144,7 +173,10 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1">
                 <label htmlFor="res-time">Choose time <span className='text-tertiary'>*</span></label>
                 <select className="bg-primary-200 py-2 px-4 border
-                border-primary rounded focus:outline-tertiary" id="res-time"
+                border-primary rounded focus:outline-tertiary" 
+                id="res-time"
+                aria-required="true"
+                aria-label="Choose time"
                 value={time}
                 required={true}
                 onChange={handleTimeChange}
@@ -159,8 +191,15 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1">
                 <label htmlFor="guests">Number of guests <span className='text-tertiary'>*</span></label>
                 <input className="bg-primary-200 py-2 px-4 border
-                border-primary rounded focus:outline-tertiary" type="number" placeholder="1"
-                min="1" max="10" id="guests" required
+                border-primary rounded focus:outline-tertiary"
+                type="number"
+                placeholder="1"
+                min="1"
+                max="10"
+                id="guests"
+                required
+                aria-required="true"
+                aria-label="Amount of guests"
                 value={guests}
                 onChange={(e) => {
                     setGuests(e.target.value);
@@ -170,7 +209,12 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
             <div className="flex flex-col gap-1 relative">
                 <label htmlFor="occasion">Occasion <span className='text-tertiary'>*</span></label>
                 <select className={occasion.isTouched && occasion.value === 'Select' ?
-                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-tertiary border-tertiary' : 'bg-primary-200 py-2 px-4 border border-primary rounded'} id="occasion" required
+                'bg-primary-200 py-2 px-4 border border-primary rounded focus:outline-tertiary border-tertiary' :
+                'bg-primary-200 py-2 px-4 border border-primary rounded'}
+                id="occasion"
+                required
+                aria-required="true"
+                aria-label="Occasion"
                 value={occasion.value}
                 onChange={(e) => {
                     setOccasion({ ...occasion, value: e.target.value });
@@ -188,8 +232,12 @@ function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
                   <ErrorMessage />
                 ) : null}
             </div>
-            <button className="btn mt-4" type="submit" disabled={!isFormValid()}>
-                Make Your Reservation
+            <button
+            className="btn mt-4"
+            type="submit"
+            aria-label="Send Reservation"
+            disabled={!isFormValid()}>
+              Make Your Reservation
             </button>
         </form>
       </>
