@@ -1,36 +1,42 @@
 import { useState } from 'react';
 
-function BookingForm({availableTimes,setAvailableTimes}) {
-    const timeList = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-    const [date, setDate] = useState();
+function BookingForm({ availableTimes, dispatchOnDateChange, submitData }) {
+    const minDate = new Date().toISOString().split('T')[0];
+    const startTime = availableTimes[0];
+    const [date, setDate] = useState(minDate);
+    const [time, setTime] = useState(startTime);
     const [guests, setGuests] = useState(1);
-    const [occasion, setOccasion] = useState('Birthday');
+    const [occasion, setOccasion] = useState('');
 
-    const displayAvailableTimes = timeList.map((time, index) =>
-        <option key={index}>
-            {time}
-        </option>
-    );
+    // handle date and time
+    const handleDateChange = e => {
+      setDate(e.target.value);
+      dispatchOnDateChange(e.target.value);
+    };
 
-    const getIsFormValid = () => {
+    const handleTimeChange = e => setTime(e.target.value);
+
+    // check if all fields are filled
+    const isFormValid = () => {
         return (
           date &&
-          availableTimes &&
+          time &&
           guests &&
           occasion
         );
     };
 
+    // reset form after submit
     const clearForm = () => {
         setDate("");
-        setAvailableTimes("");
+        setTime("");
         setGuests("");
         setOccasion("");
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Great, we received your reservation!");
+        submitData({ date, time, guests, occasion, });
         clearForm();
     };
 
@@ -41,22 +47,24 @@ function BookingForm({availableTimes,setAvailableTimes}) {
                 <label htmlFor="res-date">Choose date <span className='text-tertiary'>*</span></label>
                 <input className="bg-primary-200 py-2 px-4 border
                 border-primary rounded" type="date" id="res-date"
+                min={minDate}
                 value={date}
-                onChange={(e) => {
-                    setDate(e.target.value);
-                  }}
+                onChange={handleDateChange}
                 />
             </div>
             <div className="flex flex-col gap-1">
                 <label htmlFor="res-time">Choose time <span className='text-tertiary'>*</span></label>
                 <select className="bg-primary-200 py-2 px-4 border
                 border-primary rounded" id="res-time"
-                value={availableTimes}
-                onChange={(e) => {
-                    setAvailableTimes(e.target.value);
-                  }}
+                value={time}
+                required={true}
+                onChange={handleTimeChange}
                 >
-                    {displayAvailableTimes}
+                    {availableTimes.map(times =>
+                      <option data-testid="booking-time-option" key={times}>
+                        {times}
+                      </option>
+                    )}
                 </select>
             </div>
             <div className="flex flex-col gap-1">
@@ -81,9 +89,10 @@ function BookingForm({availableTimes,setAvailableTimes}) {
                 >
                     <option>Birthday</option>
                     <option>Anniversary</option>
+                    <option>Other</option>
                 </select>
             </div>
-            <button className="btn mt-4" type="submit" disabled={!getIsFormValid()}>
+            <button className="btn mt-4" type="submit" disabled={!isFormValid()}>
                 Make Your Reservation
             </button>
         </form>

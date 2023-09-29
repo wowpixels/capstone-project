@@ -1,18 +1,21 @@
 import BookingForm from '../components/BookingForm';
-import { useState } from 'react';
 import { useReducer } from 'react';
+import { fetchAPI, submitAPI } from "../util/api";
 
-const updateTimes = (state, action) => {
-return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-}
+const updateTimes = (availableTimes, date) => {
+  const response = fetchAPI(new Date(date));
+  return (response.length !== 0) ? response : availableTimes;
+};
+
+const initializeTimes = initialAvailableTimes => [...initialAvailableTimes, ...fetchAPI(new Date())];
 
 function Reservations() {
-  // use the reducer state to update the time when selecting a date
-  const initializeTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-  const [state, dispatch] = useReducer(updateTimes, initializeTimes);
+  const [availableTimes, dispatchOnDateChange] = useReducer(updateTimes, [], initializeTimes);
 
-  // Remove this later
-  const [availableTimes, setAvailableTimes] = useState();
+  const submitData = formData => {
+    const response = submitAPI(formData);
+    console.log('The booking was submitted:', response)
+  };
 
   return (
     <section className="container py-16">
@@ -29,8 +32,10 @@ function Reservations() {
         esse modi, quos aperiam libero magni!
       </p>
       <BookingForm
-      availableTimes={availableTimes}
-      setAvailableTimes={setAvailableTimes}  />
+        availableTimes={availableTimes}
+        dispatchOnDateChange={dispatchOnDateChange}
+        submitData={submitData}
+      />
     </section>
   );
 }
