@@ -2,7 +2,6 @@
 
 ![Meta](https://img.shields.io/badge/Meta-0668E1?style=flat&logo=meta&logoColor=white)
 ![React](https://img.shields.io/badge/React-499CB8?style=flat&logo=react&logoColor=white)
-![React](https://img.shields.io/badge/React-499CB8?style=flat&logo=react&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
 
 
